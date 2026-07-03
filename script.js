@@ -1,7 +1,10 @@
 const display = document.getElementById("display");
+const powerButton = document.getElementById("powerButton");
 const clearButton = document.getElementById("clear");
 const buttons = document.querySelectorAll("button");
 const operators = ["+", "-", "×", "÷", "%"];
+
+let isOn = true;
 let lastOperator = "";
 let lastOperand = "";
 
@@ -24,6 +27,11 @@ function updateDisplaySize() {
 }
 
 function updateClearButton()  {
+
+    if (!isOn) {
+        clearButton.textContent = "AC";
+        return;
+    }
     
     if(display.value === "") {
         clearButton.textContent = "AC";
@@ -35,6 +43,34 @@ function updateClearButton()  {
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
         const value = button.dataset.value;
+
+        if (value === "POWER") {
+            isOn = !isOn;
+
+            if (isOn) {
+                display.value = "";
+                display.placeholder = "";
+
+                powerButton.textContent = "OFF";
+                powerButton.classList.remove("bg-green-600");
+                powerButton.classList.add("bg-red-600");
+            } else {
+                display.value = "";
+                display.placeholder = "OFF";
+
+                powerButton.textContent = "ON";
+                powerButton.classList.remove("bg-red-600");
+                powerButton.classList.add("bg-green-600");
+            }
+
+            updateDisplaySize();
+            updateClearButton();
+            return;
+        }
+
+        if (!isOn) {
+            return;
+        }
 
         if (display.value === "Error" && value !== "AC") {
             display.value = "";
@@ -65,7 +101,7 @@ buttons.forEach(function(button) {
             }
         } else {
 
-            if (display.value === "" && ["+", "*", "/", "%"].includes(value)) {
+            if (display.value === "" && ["+", "×", "÷", "%"].includes(value)) {
                 return;
             }
 
