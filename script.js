@@ -4,7 +4,13 @@ const clearButton = document.getElementById("clear");
 const buttons = document.querySelectorAll("button");
 const operators = ["+", "-", "×", "÷", "%"];
 
-let isOn = true;
+let isOn = false;
+display.value = "OFF";
+powerButton.classList.remove("bg-red-600", "shadow-red-500/40");
+powerButton.classList.add("bg-green-600", "shadow-green-500/40");
+updateClearButton();
+updateDisplaySize();
+
 let lastOperator = "";
 let lastOperand = "";
 
@@ -49,13 +55,11 @@ buttons.forEach(function(button) {
 
             if (isOn) {
                 display.value = "";
-                display.placeholder = "";
 
                 powerButton.classList.remove("bg-green-600", "shadow-green-500/40");
                 powerButton.classList.add("bg-red-600", "shadow-red-500/40");
             } else {
-                display.value = "";
-                display.placeholder = "OFF";
+                display.value = "OFF";
 
                 powerButton.classList.remove("bg-red-600", "shadow-red-500/40");
                 powerButton.classList.add("bg-green-600", "shadow-green-500/40");
