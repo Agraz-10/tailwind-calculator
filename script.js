@@ -1,5 +1,6 @@
 const display = document.getElementById("display");
 const powerButton = document.getElementById("powerButton");
+const powerStatus = document.getElementById("powerStatus");
 const clearButton = document.getElementById("clear");
 const buttons = document.querySelectorAll("button");
 const operators = ["+", "-", "×", "÷", "%"];
@@ -51,16 +52,22 @@ buttons.forEach(function(button) {
                 display.value = "";
                 display.placeholder = "";
 
-                powerButton.textContent = "OFF";
-                powerButton.classList.remove("bg-green-600");
-                powerButton.classList.add("bg-red-600");
+                powerButton.classList.remove("bg-green-600", "shadow-green-500/40");
+                powerButton.classList.add("bg-red-600", "shadow-red-500/40");
+
+                powerStatus.textContent = "Power ON";
+                powerStatus.classList.remove("text-red-400");
+                powerStatus.classList.add("text-green-500");
             } else {
                 display.value = "";
                 display.placeholder = "OFF";
 
-                powerButton.textContent = "ON";
-                powerButton.classList.remove("bg-red-600");
-                powerButton.classList.add("bg-green-600");
+                powerButton.classList.remove("bg-red-600", "shadow-red-500/40");
+                powerButton.classList.add("bg-green-600", "shadow-green-500/40");
+                
+                powerStatus.textContent = "Power OFF";
+                powerStatus.classList.remove("text-green-500");
+                powerStatus.classList.add("text-red-400");
             }
 
             updateDisplaySize();
