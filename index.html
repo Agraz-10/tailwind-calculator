@@ -4,36 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black flex justify-center items-center min-h-screen">
-    <div class="bg-black p-6 rounded-[35px] shadow-2xl border-gray-700 w-[340px]">
-        <input type="text" id="display" class="w-full bg-black text-right text-white text-6xl font-light p-5 mb-6 outline-none" readonly>
+
+<body class="bg-gradient-to-br from-black via-gray-900 to-black flex justify-center items-center min-h-screen font-[Poppins]">
+
+    <div class="bg-black p-6 rounded-[35px] shadow-2xl shadow-black/70 border border-gray-700 w-[340px] max-w-[95vw] transition-all duration-300 hover:shadow-orange-500/20">
+        <input type="text" id="display" class="w-full bg-black text-white text-right text-5xl font-light p-5 mb-6 outline-none tracking-wide transition-all duration-300" readonly>
         
         <div class="grid grid-cols-4 gap-3">
-            <button class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 active:scale-95 transition duration-150" data-value="DEL">DEL</button>
-            <button class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 active:scale-95 transition duration-150" data-value="AC">AC</button>
-            <button class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 active:scale-95 transition duration-150" data-value="%">%</button>
+            <button class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="DEL">⌫</button>
+            <button id="clear" class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="AC">AC</button>
+            <button class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="%">%</button>
 
-            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 active:scale-95 transition duration-150" data-value="/">/</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="7">7</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="8">8</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="9">9</button>
-            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 active:scale-95 transition duration-150" data-value="*">*</button>
+            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="/">÷</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="7">7</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="8">8</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="9">9</button>
+            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="*">×</button>
 
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="4">4</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="5">5</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="6">6</button>
-            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 active:scale-95 transition duration-150" data-value="-">-</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="4">4</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="5">5</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="6">6</button>
+            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="-">–</button>
 
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="1">1</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="2">2</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value="3">3</button>
-            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 active:scale-95 transition duration-150" data-value="+">+</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="1">1</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="2">2</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-500 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="3">3</button>
+            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="+">+</button>
 
-            <button class="bg-gray-700 text-white h-16 col-span-2 rounded-full text-2xl text-left pl-6 hover:bg-gray-600 active:scale-95 transition duration-150" data-value="0">0</button>
-            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 active:scale-95 transition duration-150" data-value=".">.</button>
-            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 active:scale-95 transition duration-150" data-value="=">=</button>
+            <button class="bg-gray-400 text-black w-16 h-16 rounded-full text-xl font-semibold hover:bg-gray-300 hover:scale-105 active:scale-90 ttransition duration-150 cursor-pointer select-none" data-value="SIGN">+/–</button>
+            <button class="bg-gray-700 text-white h-16 rounded-full text-2xl text-left pl-6 hover:bg-gray-600 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="0">0</button>
+            <button class="bg-gray-700 text-white w-16 h-16 rounded-full text-2xl hover:bg-gray-600 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value=".">.</button>
+            <button class="bg-orange-500 text-white w-16 h-16 rounded-full text-2xl hover:bg-orange-400 hover:scale-105 active:scale-90 transition duration-150 cursor-pointer select-none" data-value="=">=</button>
         </div>
     </div>
     
