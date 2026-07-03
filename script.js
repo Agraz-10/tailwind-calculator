@@ -2,6 +2,8 @@ const display = document.getElementById("display");
 const clearButton = document.getElementById("clear");
 const buttons = document.querySelectorAll("button");
 const operators = ["+", "-", "×", "÷", "%"];
+let lastOperator = "";
+let lastOperand = "";
 
 function updateDisplaySize() {
     let length = display.value.length;
