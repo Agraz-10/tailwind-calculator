@@ -103,14 +103,14 @@ buttons.forEach(function(button) {
             }
         } else {
 
-            if (display.value === "" && ["+", "×", "÷", "%"].includes(value)) {
+            if (display.value === "" && operators.includes(value)) {
                 return;
             }
 
             let lastCharacter = display.value.slice(-1);
             if (lastCharacter === "×") lastCharacter = "*";
             if (lastCharacter === "÷") lastCharacter = "/";
-            
+
             if (operators.includes(lastCharacter) && operators.includes(value)){
                 return;
             }
