@@ -89,6 +89,9 @@ buttons.forEach(function(button) {
         } else if (value === "DEL") {
             display.value = display.value.slice(0, -1);
         } else if (value === "=") {
+            if (display.value === "") {
+                return;
+            }
             try{
                 let expression = display.value.replace(/×/g, "*").replace(/÷/g, "/");
                 let result = eval(expression);
