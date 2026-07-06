@@ -2,7 +2,7 @@ const display = document.getElementById("display");
 const powerButton = document.getElementById("powerButton");
 const clearButton = document.getElementById("clear");
 const buttons = document.querySelectorAll("button");
-const operators = ["+", "-", "×", "÷", "%"];
+const operators = ["+", "-", "*", "/", "%"];
 
 let isOn = false;
 display.value = "OFF";
@@ -108,6 +108,9 @@ buttons.forEach(function(button) {
             }
 
             let lastCharacter = display.value.slice(-1);
+            if (lastCharacter === "×") lastCharacter = "*";
+            if (lastCharacter === "÷") lastCharacter = "/";
+            
             if (operators.includes(lastCharacter) && operators.includes(value)){
                 return;
             }
